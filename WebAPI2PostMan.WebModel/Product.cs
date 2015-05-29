@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI2PostMan.Models
+namespace WebAPI2PostMan.WebModel
 {
     /// <summary>
     ///     产品
@@ -10,10 +10,12 @@ namespace WebAPI2PostMan.Models
         /// <summary>
         ///     编号
         /// </summary>
-        public Guid Id { get; set; }
+        [Required]
+        public int Id { get; set; }
         /// <summary>
         ///     名称
         /// </summary>
+        [Required, MaxLength(36)]
         public string Name { get; set; }
         /// <summary>
         ///     价格

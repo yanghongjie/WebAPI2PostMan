@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
+using System.Web.Http.ModelBinding;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
@@ -112,7 +113,7 @@ namespace WebAPI2PostMan.Areas.HelpPage
             if (type != null && !typeof(HttpResponseMessage).IsAssignableFrom(type))
             {
                 object sampleObject = GetSampleObject(type);
-                foreach (var formatter in formatters)
+                foreach (var formatter in formatters.Where(x => x.GetType() != typeof(JQueryMvcFormUrlEncodedFormatter)))
                 {
                     foreach (MediaTypeHeaderValue mediaType in formatter.SupportedMediaTypes)
                     {

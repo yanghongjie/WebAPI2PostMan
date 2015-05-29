@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using WebAPI2PostMan.Common.Attributes;
 
 namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
 {
@@ -56,6 +57,12 @@ namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
                 {
                     RegularExpressionAttribute regularExpression = (RegularExpressionAttribute)a;
                     return String.Format(CultureInfo.CurrentCulture, "Matching regular expression pattern: {0}", regularExpression.Pattern);
+                }
+            },
+            { typeof(MinAttribute), a =>
+                {
+                    MinAttribute minAttribute = (MinAttribute)a;
+                    return String.Format(CultureInfo.CurrentCulture, "×îÐ¡Öµ: {0}", minAttribute.MinimumValue);
                 }
             },
         };

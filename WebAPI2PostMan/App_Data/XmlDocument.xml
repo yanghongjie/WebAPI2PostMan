@@ -244,6 +244,44 @@
             Gets the error messages associated with this model.
             </summary>
         </member>
+        <member name="T:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider">
+            <summary>A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from a collection of XML documentation files.</summary>
+        </member>
+        <member name="F:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.Providers">
+            <summary>The internal documentation providers for specific files.</summary>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.#ctor(System.String[])">
+            <summary>Construct an instance.</summary>
+            <param name="paths">The physical paths to the XML documents.</param>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Reflection.MemberInfo)">
+            <summary>Gets the documentation for a subject.</summary>
+            <param name="subject">The subject to document.</param>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Type)">
+            <summary>Gets the documentation for a subject.</summary>
+            <param name="subject">The subject to document.</param>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpControllerDescriptor)">
+            <summary>Gets the documentation for a subject.</summary>
+            <param name="subject">The subject to document.</param>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
+            <summary>Gets the documentation for a subject.</summary>
+            <param name="subject">The subject to document.</param>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpParameterDescriptor)">
+            <summary>Gets the documentation for a subject.</summary>
+            <param name="subject">The subject to document.</param>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.GetResponseDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
+            <summary>Gets the documentation for a subject.</summary>
+            <param name="subject">The subject to document.</param>
+        </member>
+        <member name="M:WebAPI2PostMan.Areas.HelpPage.MultiXmlDocumentationProvider.GetFirstMatch(System.Func{WebAPI2PostMan.Areas.HelpPage.XmlDocumentationProvider,System.String})">
+            <summary>Get the first valid result from the collection of XML documentation providers.</summary>
+            <param name="expr">The method to invoke.</param>
+        </member>
         <member name="T:WebAPI2PostMan.Areas.HelpPage.HelpPageSampleGenerator">
             <summary>
             This class will generate the samples for the help page.
@@ -502,54 +540,45 @@
                 获取所有产品
             </summary>
         </member>
-        <member name="M:WebAPI2PostMan.Controllers.ProductController.Get(System.Guid)">
+        <member name="M:WebAPI2PostMan.Controllers.ProductController.GetTop(System.Int32)">
+            <summary>
+                获取前几产品
+            </summary>
+        </member>
+        <member name="M:WebAPI2PostMan.Controllers.ProductController.Get(System.Int32)">
             <summary>
                 获取产品
             </summary>
             <param name="id">产品编号</param>
         </member>
-        <member name="M:WebAPI2PostMan.Controllers.ProductController.Post(WebAPI2PostMan.Models.Product)">
+        <member name="M:WebAPI2PostMan.Controllers.ProductController.Post(WebAPI2PostMan.WebModel.Product)">
             <summary>
                 添加产品
             </summary>
             <param name="request">产品请求</param>
         </member>
-        <member name="M:WebAPI2PostMan.Controllers.ProductController.Put(System.Int32,WebAPI2PostMan.Models.Product)">
+        <member name="M:WebAPI2PostMan.Controllers.ProductController.Put(System.Int32,WebAPI2PostMan.WebModel.Product)">
             <summary>
                 编辑产品
             </summary>
             <param name="id">产品编号</param>
             <param name="request">编辑后的产品</param>
         </member>
-        <member name="M:WebAPI2PostMan.Controllers.ProductController.Delete(System.Guid)">
+        <member name="M:WebAPI2PostMan.Controllers.ProductController.Delete(System.Int32)">
             <summary>
                 删除产品
             </summary>
             <param name="id">产品编号</param>
         </member>
-        <member name="T:WebAPI2PostMan.Models.Product">
+        <member name="M:WebAPI2PostMan.Controllers.ProductController.LoadList">
             <summary>
-                产品
+                Mock数据
             </summary>
+            <returns></returns>
         </member>
-        <member name="P:WebAPI2PostMan.Models.Product.Id">
+        <member name="M:WebAPI2PostMan.Controllers.ProductController.#ctor">
             <summary>
-                编号
-            </summary>
-        </member>
-        <member name="P:WebAPI2PostMan.Models.Product.Name">
-            <summary>
-                名称
-            </summary>
-        </member>
-        <member name="P:WebAPI2PostMan.Models.Product.Price">
-            <summary>
-                价格
-            </summary>
-        </member>
-        <member name="P:WebAPI2PostMan.Models.Product.Description">
-            <summary>
-                描述
+                构造函数
             </summary>
         </member>
     </members>
