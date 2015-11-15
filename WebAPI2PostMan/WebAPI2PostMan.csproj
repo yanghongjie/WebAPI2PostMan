@@ -22,6 +22,7 @@
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -117,6 +118,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\WebAPI2PostMan.WebModel.XmlDocument.xml" />
+    <Content Include="App_Data\XmlDocument.xml" />
     <Content Include="Areas\HelpPage\Content\bootstrap.css" />
     <Content Include="Areas\HelpPage\Content\bootstrap.min.css" />
     <Content Include="Areas\HelpPage\Content\Site.css" />
@@ -208,9 +211,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WebAPI2PostMan.Common\WebAPI2PostMan.Common.csproj">
       <Project>{D165FC5C-EFB4-4626-8104-67BA67485772}</Project>
