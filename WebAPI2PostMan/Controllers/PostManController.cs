@@ -15,18 +15,16 @@ namespace WebAPI2PostMan.Controllers
     [RoutePrefix("PostMan")]
     public class PostManController : ApiController
     {
-        private const string Host = "http://localhost:11488/";
-
-        /// <summary>
+                /// <summary>
         ///     获取PostMan集合
         /// </summary>
         /// <returns></returns>
-        [Route("")]
-        public JsonResult<PostmanCollection> GetPostmanCollection()
+        [Route("urlencoded")]
+        public JsonResult<PostmanCollection> GetPostmanCollection_Urlencoded()
         {
             var collectionId = PostMan.GetId();
             var apis = Configuration.Services.GetApiExplorer().ApiDescriptions.Where(x => x.Documentation != null);
-            var requests = GetPostmanRequests(apis, collectionId);
+            var requests = GetPostmanRequests_Urlencoded(apis, collectionId);
             var collection = new PostmanCollection
             {
                 id = collectionId,
@@ -40,7 +38,30 @@ namespace WebAPI2PostMan.Controllers
             return Json(collection);
         }
 
-        private List<PostmanRequest> GetPostmanRequests(IEnumerable<ApiDescription> apis, string collectionId)
+        /// <summary>
+        ///     获取PostMan集合
+        /// </summary>
+        /// <returns></returns>
+        [Route("raw")]
+        public JsonResult<PostmanCollection> GetPostmanCollection_Raw()
+        {
+            var collectionId = PostMan.GetId();
+            var apis = Configuration.Services.GetApiExplorer().ApiDescriptions.Where(x => x.Documentation != null);
+            var requests = GetPostmanRequests_Raw(apis, collectionId);
+            var collection = new PostmanCollection
+            {
+                id = collectionId,
+                name = "WebAPI2PostMan",
+                description = "",
+                order = requests.Select(x => x.id).ToList(),
+                timestamp = 0,
+                requests = requests
+            };
+
+            return Json(collection);
+        }
+
+        private List<PostmanRequest> GetPostmanRequests_Urlencoded(IEnumerable<ApiDescription> apis, string collectionId)
         {
             return apis.Select(api => new PostmanRequest
             {
@@ -48,19 +69,19 @@ namespace WebAPI2PostMan.Controllers
                 id = PostMan.GetId(),
                 name = api.Documentation,
                 dataMode = "urlencoded",
-                data = GetPostmanDatas(api),
+                data = GetPostmanDatas_Urlencoded(api),
                 description = "",
                 descriptionFormat = "html",
                 headers = "",
                 method = api.HttpMethod.Method,
                 pathVariables = new Dictionary<string, string>(),
-                url = Host + api.RelativePath,
+                url = Request.RequestUri.Authority + "/" + api.RelativePath,
                 version = 2,
                 collectionId = collectionId
             }).ToList();
         }
 
-        private List<PostmanData> GetPostmanDatas(ApiDescription api)
+        private List<PostmanData> GetPostmanDatas_Urlencoded(ApiDescription api)
         {
             var postmandatas = new List<PostmanData>();
             var apiModel = Configuration.GetHelpPageApiModel(api.GetFriendlyId());
@@ -69,6 +90,37 @@ namespace WebAPI2PostMan.Controllers
             var pdata = JsonConvert.DeserializeObject<Dictionary<string,string>>(raw.ToString());
             postmandatas.AddRange(pdata.Select(model => new PostmanData {key = model.Key, value = model.Value}));
             return postmandatas;
+        }
+
+        private List<PostmanRequest> GetPostmanRequests_Raw(IEnumerable<ApiDescription> apis, string collectionId)
+        {
+            return apis.Select(api => new PostmanRequest
+            {
+                collection = collectionId,
+                id = PostMan.GetId(),
+                name = api.Documentation,
+                dataMode = "raw",
+                data = new List<PostmanData>(),
+                rawModeData = GetPostmanDatas_Raw(api),
+                description = "",
+                descriptionFormat = "html",
+                headers = "Content-Type: application/json",
+                method = api.HttpMethod.Method,
+                pathVariables = new Dictionary<string, string>(),
+                url = Request.RequestUri.Authority + "/" + api.RelativePath,
+                version = 2,
+                collectionId = collectionId
+            }).ToList();
+        }
+
+        private string GetPostmanDatas_Raw(ApiDescription api)
+        {
+            var rawContent = string.Empty;
+            var apiModel = Configuration.GetHelpPageApiModel(api.GetFriendlyId());
+            var raw = apiModel.SampleRequests.Values.FirstOrDefault();
+            if (raw == null) return rawContent;
+            rawContent = raw.ToString();
+            return rawContent;
         }
     }
 
