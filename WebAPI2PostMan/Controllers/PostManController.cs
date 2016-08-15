@@ -15,8 +15,8 @@ namespace WebAPI2PostMan.Controllers
     [RoutePrefix("PostMan")]
     public class PostManController : ApiController
     {
-                /// <summary>
-        ///     获取PostMan集合
+        /// <summary>
+        ///     get PostMan urlencoded content
         /// </summary>
         /// <returns></returns>
         [Route("urlencoded")]
@@ -39,7 +39,7 @@ namespace WebAPI2PostMan.Controllers
         }
 
         /// <summary>
-        ///     获取PostMan集合
+        ///     get PostMan raw content
         /// </summary>
         /// <returns></returns>
         [Route("raw")]

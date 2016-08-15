@@ -63,6 +63,7 @@ namespace WebAPI2PostMan.Models
         public string url { get; set; }
         public int version { get; set; }
         public string collectionId { get; set; }
+        public string rawModeData { get; set; }
     }
 
     public class PostmanData
