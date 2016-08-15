@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI2PostMan.WebModel</name>
+    </assembly>
+    <members>
+        <member name="T:WebAPI2PostMan.WebModel.Product">
+            <summary>
+                产品
+            </summary>
+        </member>
+        <member name="P:WebAPI2PostMan.WebModel.Product.Id">
+            <summary>
+                编号
+            </summary>
+        </member>
+        <member name="P:WebAPI2PostMan.WebModel.Product.Name">
+            <summary>
+                名称
+            </summary>
+        </member>
+        <member name="P:WebAPI2PostMan.WebModel.Product.Price">
+            <summary>
+                价格
+            </summary>
+        </member>
+        <member name="P:WebAPI2PostMan.WebModel.Product.Description">
+            <summary>
+                描述
+            </summary>
+        </member>
+    </members>
+</doc>

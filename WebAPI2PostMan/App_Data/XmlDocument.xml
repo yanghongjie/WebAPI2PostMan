@@ -526,13 +526,13 @@
         </member>
         <member name="M:WebAPI2PostMan.Controllers.PostManController.GetPostmanCollection_Urlencoded">
             <summary>
-                get PostMan urlencoded content
+               你可以将本地址用于 PostMan 的 Import from Link
             </summary>
             <returns></returns>
         </member>
         <member name="M:WebAPI2PostMan.Controllers.PostManController.GetPostmanCollection_Raw">
             <summary>
-                get PostMan raw content
+                你可以将本地址用于 PostMan 的 Import from Link
             </summary>
             <returns></returns>
         </member>

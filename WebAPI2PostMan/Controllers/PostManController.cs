@@ -16,7 +16,7 @@ namespace WebAPI2PostMan.Controllers
     public class PostManController : ApiController
     {
         /// <summary>
-        ///     get PostMan urlencoded content
+        ///    你可以将该地址用于 PostMan 的 Import from Link
         /// </summary>
         /// <returns></returns>
         [Route("urlencoded")]
@@ -39,7 +39,7 @@ namespace WebAPI2PostMan.Controllers
         }
 
         /// <summary>
-        ///     get PostMan raw content
+        ///     你可以将该地址用于 PostMan 的 Import from Link
         /// </summary>
         /// <returns></returns>
         [Route("raw")]
