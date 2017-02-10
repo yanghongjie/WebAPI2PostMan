@@ -5,7 +5,7 @@ using System.Web.Http;
 using WebAPI2PostMan.Common.Attributes;
 using WebAPI2PostMan.WebModel;
 
-namespace WebAPI2PostMan.Controllers
+namespace WebAPI2PostManWebHost.Controllers
 {
     /// <summary>
     ///     产品服务

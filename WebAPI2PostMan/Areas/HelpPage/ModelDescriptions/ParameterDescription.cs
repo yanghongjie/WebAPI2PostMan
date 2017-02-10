@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
+namespace WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

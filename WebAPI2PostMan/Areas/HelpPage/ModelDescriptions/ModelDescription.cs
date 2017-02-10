@@ -1,6 +1,6 @@
 using System;
 
-namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
+namespace WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

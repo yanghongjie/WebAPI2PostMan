@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
+namespace WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

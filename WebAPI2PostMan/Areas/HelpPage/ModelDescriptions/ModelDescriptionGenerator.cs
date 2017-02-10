@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 using WebAPI2PostMan.Common.Attributes;
 
-namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
+namespace WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Generates model descriptions for given types.
@@ -62,7 +62,7 @@ namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
             { typeof(MinAttribute), a =>
                 {
                     MinAttribute minAttribute = (MinAttribute)a;
-                    return String.Format(CultureInfo.CurrentCulture, "最小值: {0}", minAttribute.MinimumValue);
+                    return String.Format(CultureInfo.CurrentCulture, "锟斤拷小值: {0}", minAttribute.MinimumValue);
                 }
             },
         };

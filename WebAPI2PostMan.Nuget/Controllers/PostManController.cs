@@ -4,10 +4,9 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.Results;
 using Newtonsoft.Json;
-using WebAPI2PostMan.Areas.HelpPage;
-using WebAPI2PostMan.Models;
+using WebAPI2PostMan.Nuget.Models;
 
-namespace WebAPI2PostMan.Controllers
+namespace WebAPI2PostMan.Nuget.Controllers
 {
     /// <summary>
     /// 
@@ -42,8 +41,8 @@ namespace WebAPI2PostMan.Controllers
         ///     你可以将该地址用于 PostMan 的 Import from Link
         /// </summary>
         /// <returns></returns>
-        [Route("raw")]
-        public JsonResult<PostmanCollection> GetPostmanCollection_Raw()
+        [Route("")]
+        public JsonResult<PostmanCollection> GetPostmanCollection_Raw(string serviceName = "WebAPI2PostMan")
         {
             var collectionId = PostMan.GetId();
             var apis = Configuration.Services.GetApiExplorer().ApiDescriptions.Where(x => x.Documentation != null);
@@ -51,7 +50,7 @@ namespace WebAPI2PostMan.Controllers
             var collection = new PostmanCollection
             {
                 id = collectionId,
-                name = "WebAPI2PostMan",
+                name = serviceName,
                 description = "",
                 order = requests.Select(x => x.id).ToList(),
                 timestamp = 0,
@@ -60,6 +59,8 @@ namespace WebAPI2PostMan.Controllers
 
             return Json(collection);
         }
+
+        #region Private Method
 
         private List<PostmanRequest> GetPostmanRequests_Urlencoded(IEnumerable<ApiDescription> apis, string collectionId)
         {
@@ -87,8 +88,8 @@ namespace WebAPI2PostMan.Controllers
             var apiModel = Configuration.GetHelpPageApiModel(api.GetFriendlyId());
             var raw = apiModel.SampleRequests.Values.FirstOrDefault();
             if (raw == null) return postmandatas;
-            var pdata = JsonConvert.DeserializeObject<Dictionary<string,string>>(raw.ToString());
-            postmandatas.AddRange(pdata.Select(model => new PostmanData {key = model.Key, value = model.Value}));
+            var pdata = JsonConvert.DeserializeObject<Dictionary<string, string>>(raw.ToString());
+            postmandatas.AddRange(pdata.Select(model => new PostmanData { key = model.Key, value = model.Value }));
             return postmandatas;
         }
 
@@ -121,7 +122,9 @@ namespace WebAPI2PostMan.Controllers
             if (raw == null) return rawContent;
             rawContent = raw.ToString();
             return rawContent;
-        }
+        } 
+
+        #endregion
     }
 
 }

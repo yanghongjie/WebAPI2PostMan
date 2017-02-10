@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using WebAPI2PostMan.Areas.HelpPage.ModelDescriptions;
+using WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions;
 
-namespace WebAPI2PostMan.Areas.HelpPage.Models
+namespace WebAPI2PostManWebHost.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 
-namespace WebAPI2PostMan.Models
+namespace WebAPI2PostMan.Nuget.Models
 {
     public class PostMan
     {

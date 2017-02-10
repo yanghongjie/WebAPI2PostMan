@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using WebAPI2PostMan.Areas.HelpPage.ModelDescriptions;
+using WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions;
 
-namespace WebAPI2PostMan.Areas.HelpPage
+namespace WebAPI2PostManWebHost.Areas.HelpPage
 {
     /// <summary>A custom <see cref="IDocumentationProvider"/> that reads the API documentation from a collection of XML documentation files.</summary>
     public class MultiXmlDocumentationProvider : IDocumentationProvider, IModelDocumentationProvider

@@ -1,7 +1,8 @@
 using System.Web.Http;
 using System.Web.Mvc;
+using WebAPI2PostManWebHost.Areas.HelpPage.App_Start;
 
-namespace WebAPI2PostMan.Areas.HelpPage
+namespace WebAPI2PostManWebHost.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

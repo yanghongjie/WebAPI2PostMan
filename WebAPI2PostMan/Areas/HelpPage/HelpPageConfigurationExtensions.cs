@@ -11,10 +11,11 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using WebAPI2PostMan.Areas.HelpPage.ModelDescriptions;
-using WebAPI2PostMan.Areas.HelpPage.Models;
+using WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions;
+using WebAPI2PostManWebHost.Areas.HelpPage.Models;
+using WebAPI2PostManWebHost.Areas.HelpPage.SampleGeneration;
 
-namespace WebAPI2PostMan.Areas.HelpPage
+namespace WebAPI2PostManWebHost.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

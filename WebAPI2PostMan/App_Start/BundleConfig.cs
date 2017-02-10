@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace WebAPI2PostMan
+namespace WebAPI2PostManWebHost
 {
     public class BundleConfig
     {

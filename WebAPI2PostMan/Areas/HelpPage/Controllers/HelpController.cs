@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using WebAPI2PostMan.Areas.HelpPage.ModelDescriptions;
-using WebAPI2PostMan.Areas.HelpPage.Models;
+using WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions;
+using WebAPI2PostManWebHost.Areas.HelpPage.Models;
 
-namespace WebAPI2PostMan.Areas.HelpPage.Controllers
+namespace WebAPI2PostManWebHost.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

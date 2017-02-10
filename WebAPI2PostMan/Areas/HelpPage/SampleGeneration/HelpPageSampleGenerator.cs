@@ -14,7 +14,7 @@ using System.Web.Http.ModelBinding;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
-namespace WebAPI2PostMan.Areas.HelpPage
+namespace WebAPI2PostManWebHost.Areas.HelpPage.SampleGeneration
 {
     /// <summary>
     /// This class will generate the samples for the help page.

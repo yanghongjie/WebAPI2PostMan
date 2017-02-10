@@ -1,6 +1,6 @@
 using System;
 
-namespace WebAPI2PostMan.Areas.HelpPage.ModelDescriptions
+namespace WebAPI2PostManWebHost.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {
